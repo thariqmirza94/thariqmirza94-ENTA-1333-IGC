@@ -1,0 +1,34 @@
+# Unity-generated/cache
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Uu]ser[Ss]ettings/
+/[Ll]ogs/
+/[Mm]emoryCaptures/
+
+# Builds
+/[Bb]uild/
+/[Bb]uilds/
+
+# IDE/editor clutter
+.vscode/
+.idea/
+.vs/
+*.tmp
+*.svd
+*.user
+*.userprefs
+*.suo
+*.pidb
+*.booproj
+*.unityproj
+*.csproj
+*.sln
+
+# Packages & archives
+*.unitypackage
+*.stackdump
+
+# OS noise
+.DS_Store
+Thumbs.db
