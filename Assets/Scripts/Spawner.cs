@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal.VersionControl;
 using UnityEngine;
 
 public enum SpawnFilter
@@ -31,11 +30,15 @@ public class Spawner : MonoBehaviour
         }
         if (options.Count == 0) return; 
 
-        choice = PickBySpawnRate(options);
+        // Remove zero-weight options to avoid useless work
+        for (int i = options.Count - 1; i >= 0; i--)
+            if (options[i].spawnRate <= 0f) options.RemoveAt(i);
 
-        GameObject prefabToSpawn = GetPrefab(choice);
+        choice = PickBySpawnRate(options); // variable that stores the final chosen enemy type
+
+        GameObject prefabToSpawn = GetPrefab(choice); 
         if (prefabToSpawn == null) return; 
-        
+
         Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
     }
     
@@ -63,11 +66,10 @@ public class Spawner : MonoBehaviour
                 return options[i];
             }
         }
-        
-        return options[0];
+        return options[options.Count - 1];
     }
     
-    GameObject GetPrefab(SO_EnemyType enemy) // Choose the correct prefab based on the enemy
+    GameObject GetPrefab(SO_EnemyType enemy) // Get the correct prefab based on the enemy, in case they have different models
     {
         GameObject prefab = null;
 

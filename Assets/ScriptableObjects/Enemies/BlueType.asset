@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7046adfe9248eca49acf22ccf29c49c0, type: 3}
   m_Name: BlueType
   m_EditorClassIdentifier: 
+  enemyClassBase: 2
+  attackPowerBase: 1
+  healthBase: 1
+  speedBase: 2
+  spawnRateBase: 0.2
   enemyClass: 2
   attackPower: 1
   health: 1

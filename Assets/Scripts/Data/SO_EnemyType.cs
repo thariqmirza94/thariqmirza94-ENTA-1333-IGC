@@ -1,18 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public enum EnemyClass // The three enemy classes that it can be
+public enum EnemyClass
 {
     Grunt, Archer, Assassin
 }
 
-[CreateAssetMenu(menuName="Data/SO_EnemyType")]
-public class SO_EnemyType : ScriptableObject // Uses the previous enum for class, and the rest of the required attributes 
+[CreateAssetMenu(menuName = "Data/SO_EnemyType")]
+public class SO_EnemyType : ScriptableObject
 {
-    public EnemyClass enemyClass;
-    public int attackPower;
-    public int health;
-    public float speed;
-    public float spawnRate;
+    [SerializeField] private EnemyClass enemyClassBase;
+    [SerializeField] private int attackPowerBase;
+    [SerializeField] private int healthBase;
+    [SerializeField] private float speedBase;
+    [SerializeField] private float spawnRateBase;
+    
+    [HideInInspector] public EnemyClass enemyClass;
+    [HideInInspector] public int attackPower;
+    [HideInInspector] public int health;
+    [HideInInspector] public float speed;
+    [HideInInspector] public float spawnRate;
+
+    public void ResetRuntime()
+    {
+        enemyClass = enemyClassBase;
+        attackPower = attackPowerBase;
+        health = healthBase;
+        speed = speedBase;
+        spawnRate = spawnRateBase;
+    }
 }
