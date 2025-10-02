@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditorInternal.VersionControl;
 using UnityEngine;
 
-public enum SpawnFilter// Restrictions for each spawner
+public enum SpawnFilter
 {
     Any, ArcherOnly, GruntOnly, RedOnly
 }
@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     public SpawnFilter filter;
     private SO_EnemyType choice;
 
-    public void Spawn(List<SO_EnemyType> allTypes) // Method to check which spawner it is, and spawn the right units
+    public void Spawn(List<SO_EnemyType> allTypes) // Method to check which spawner it is, and spawn the right units 
     {
         List<SO_EnemyType> options = new List<SO_EnemyType>();
         for (int i = 0; i < allTypes.Count; i++) // For loop to assign the correct types based on the filter selected in inspector
@@ -29,20 +29,20 @@ public class Spawner : MonoBehaviour
             else if (filter == SpawnFilter.RedOnly && temp.name == "RedType") 
                 options.Add(temp);
         }
-        if (options.Count == 0) return; // Check to make sure for loop worked properly
+        if (options.Count == 0) return; 
 
         choice = PickBySpawnRate(options);
 
         GameObject prefabToSpawn = GetPrefab(choice);
-        if (prefabToSpawn == null) return; // Check to see if prefabs are assigned properly
+        if (prefabToSpawn == null) return; 
         
         Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
     }
     
     /*
-     * Spawn Rate tells the game how likely each enemy is to appear
-     * Here, all the spawn rates are added up, and then a random number is picked.
-     * Whichever enemy's range it falls into is the one that spawns, that way the enemy with higher spawn rates get picked more often to spawn
+      Spawn Rate tells the game how likely each enemy is to appear
+      first all the spawn rates are added up, and then a random number is picked.
+      Whichever enemy's range it falls into is the one that spawns, that way the enemy with higher spawn rates get picked more often to spawn
      */
     SO_EnemyType PickBySpawnRate(List<SO_EnemyType> options) 
     {
@@ -67,7 +67,7 @@ public class Spawner : MonoBehaviour
         return options[0];
     }
     
-    GameObject GetPrefab(SO_EnemyType enemy) // Get the correct prefab based on the enemy, in case they have different models
+    GameObject GetPrefab(SO_EnemyType enemy) // Choose the correct prefab based on the enemy
     {
         GameObject prefab = null;
 

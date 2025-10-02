@@ -8,7 +8,7 @@ public enum EnemyClass // The three enemy classes that it can be
 }
 
 [CreateAssetMenu(menuName="Data/SO_EnemyType")]
-public class SO_EnemyType : ScriptableObject // Uses the previous enum for class, and the rest of the required attributes
+public class SO_EnemyType : ScriptableObject // Uses the previous enum for class, and the rest of the required attributes 
 {
     public EnemyClass enemyClass;
     public int attackPower;

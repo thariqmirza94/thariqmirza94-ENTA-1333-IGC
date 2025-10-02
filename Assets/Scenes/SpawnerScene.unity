@@ -701,11 +701,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1e8c943f26e834548a2e5648f6de75c0, type: 2}
   - {fileID: 11400000, guid: 48f0db3cdb1e2ae4d93a5458795674d4, type: 2}
   - {fileID: 11400000, guid: 0cdf1acb35494a448b5c6a5722b387f4, type: 2}
-  spawnPoints:
+  spawners:
   - {fileID: 897454387}
   - {fileID: 1964708992}
   - {fileID: 390082939}
   - {fileID: 1865901933}
+  dayCycles:
+  - {fileID: 11400000, guid: c8a1a6f0ee6b8e849b0139e0b7c39c5f, type: 2}
+  - {fileID: 11400000, guid: 69889132958806e499256970282eb700, type: 2}
+  - {fileID: 11400000, guid: c9bb6ef6bc32ca74fa78dc9ac48da50a, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
